@@ -1,21 +1,21 @@
 def trap(A):
-    sdf
+    i = 1
     water = 0
-    for i in xrange(1, len(A) - 1):
+    while i < len(A) - 1:
         if A[i] < A[i - 1]:
             if A[i] < A[i + 1]:
-                water += min(A[i - 1], A[i + 1])
-                print("water level is now ", water)
+                water += min(A[i - 1], A[i + 1]) - A[i]
             else:
                 blockedIndex = -1
-                for j in xrange(i + 2, len(A)):
-                    if A[j] >= A[i]:
+                for j in range(i + 2, len(A)):
+                    if A[j] >= A[i - 1]:
                         blockedIndex = j
                         break
                 if blockedIndex != -1:
-                    for index in xrange(i, blockedIndex):
+                    for index in range(i, blockedIndex):
                         water += A[i - 1] - A[index]
-                        print("aggregating water for ", index, " level now ", water)
+                    i += blockedIndex - i
+        i += 1
     return water
 
 print(trap([0,1,0,2,1,0,1,3,2,1,2,1]))
