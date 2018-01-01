@@ -6,11 +6,13 @@ def slidingMaximum(A, B):
     for i in range(0, B):
         window.append(A[i])
     B = []
-    B.append(max(window))
-    for i in range(2, len(A) - len(window) + 2):
+    B.append(window[len(window) - 1])
+    for i in range(1, len(A) - len(window) + 1):
+        print("index ", i, " window: ", window)
         window = window[1:]
-        window.append(A[i])
+        window.append(A[i + len(window)])
         B.append(max(window))
     return B
 
-print slidingMaximum([6, 1, 7, 12, 3, 6, 5, 8, 3, 4, 15, 1], 9)
+
+print (slidingMaximum([6, 1, 7, 12, 4, 15, 1, 0, 1], 3))
