@@ -1,4 +1,5 @@
-# Finds the max of an array given a sliding window of size B
+# Finds the max of an array A given a sliding window of size B,
+# returns array with maxes
 def slidingMaximum(A, B):
     window = []
     if B > len(A):
