@@ -1,3 +1,5 @@
+# merges two sorted arrays
+
 def merge(arr1, arr2):
     pointer1, pointer2 = 0, 0
     solution = []
